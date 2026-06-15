@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const path = req.url.replace('/api/jupiter', '');
   const jupiterUrl = `https://quote-api.jup.ag${path}`;
 
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     },
     body: req.method === "POST" ? JSON.stringify(req.body) : undefined
   });
-  
+
   const data = await response.json();
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.json(data);
