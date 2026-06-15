@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     },
     body: req.method === "POST" ? JSON.stringify(req.body) : undefined
   });
-
+  
   const data = await response.json();
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.json(data);
